@@ -3,6 +3,6 @@
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/repository/BookRepository.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/controller/BookController.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/service/BookService.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/exception/BookException.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/SpringappApplication.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/configuration/SwaggerConfig.java
-/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/exception/BookException.java
