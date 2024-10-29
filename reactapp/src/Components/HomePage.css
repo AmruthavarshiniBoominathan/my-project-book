@@ -1,0 +1,90 @@
+/* HomePage.css */
+
+/* Global Styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif; /* Default font */
+}
+
+/* Wrapper for the entire page */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures the wrapper takes up at least the full height */
+}
+
+/* Cover Image Section */
+.coverimage {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    height: 50vh; /* Set height to 50% of the viewport height */
+    overflow: hidden;
+    margin: 40px; /* Remove margin to use full height */
+}
+
+/* Image within the cover section */
+.coverimage img {
+    max-width: 100%; /* Responsive image */
+    height: 100%; /* Cover the height */
+    object-fit: contain; /* Ensure image covers the area without distortion */
+    display: block; /* Prevent bottom space */
+}
+
+/* Title Overlay on Cover Image */
+.title {
+    position: absolute;
+    color: #000000; /* Text color */
+    font-size: 3em; /* Font size */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow for readability */
+    text-align: center;
+    width: 100%;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+    padding: 15px; /* Padding around the text */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Content Section */
+.content {
+    padding: 10px; /* Space for content */
+    background-color: #ffffff; /* White background */
+    border-radius: 5px; /* Rounded corners */
+    max-width: 800px; /* Max width to control layout */
+    margin: 5px auto 20px auto; /* Reduced margin above (5px) and increased margin below (20px) */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.35); /* Subtle shadow */
+}
+
+/* Paragraph styles in content */
+.content p {
+    color: #666; /* Lighter text for paragraphs */
+    font-size: 1.2em; /* Increased font size */
+    line-height: 1.6; /* Improved line spacing */
+}
+
+/* Contact Section */
+.contact {
+    padding: 20px; /* Increased padding for contact section */
+    background-color: #454545; /* Dark background color */
+    color: #ffffff; /* White text color */
+    border-radius: 5px; /* Rounded corners */
+    text-align: center; /* Center the text */
+}
+
+/* Heading styles in contact section */
+.contact h2 {
+    margin-bottom: 10px; /* Space below heading */
+    color: #ffffff; /* Ensure heading color is white */
+}
+
+/* Paragraph styles in contact section */
+.contact p {
+    margin-bottom: 5px; /* Space below paragraphs */
+    color: #ffffff; /* Ensure paragraph color is white */
+}

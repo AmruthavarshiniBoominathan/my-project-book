@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import HomePage from '../src/Components/HomePage';
+import ErrorPage from '../src/Components/ErrorPage';
+import BookForm from './BookRecommenderComponents/BookForm';
+import ViewBook from './BookRecommenderComponents/ViewBook';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        {/* Public Routes */}
+        <Route path="/error" element={<ErrorPage />} />
+        
+        {/* All Routes are now accessible without authentication */}
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/newbook" element={<BookForm />} />
+        <Route path="/editbook/:id" element={<BookForm />} />
+        <Route path="/viewbook" element={<ViewBook />} />
+
+        {/* Default redirect to home */}
+        <Route path="/" element={<Navigate to="/home" replace />} />
+
+        {/* Catch all route for undefined paths */}
+        <Route path="*" element={<Navigate to="/error" replace />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
