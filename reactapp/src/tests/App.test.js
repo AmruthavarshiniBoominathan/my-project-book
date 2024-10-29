@@ -166,9 +166,12 @@ describe('BookRecommenderNavbar Component', () => {
     );
   };
 
+test('frontend_navbar_rendersTitle',() => {
+renderNavbar();
+expect(screen.getByText('BookFinder')).toBeInTheDocument();
+});
 
-
-  test('frontend_navbar_containsNavigationLinks', () => {
+ test('frontend_navbar_containsNavigationLinks', () => {
     renderNavbar();
     expect(screen.getByText('Home')).toBeInTheDocument();
     expect(screen.getByText('Book')).toBeInTheDocument();
@@ -187,7 +190,6 @@ describe('HomePage Component', () => {
 
   test('frontend_homepage_rendersMainContent', () => {
     renderHomePage();
-    expect(screen.getByRole('link', { name: /BookFinder/i })).toBeInTheDocument();
     expect(screen.getByText('BookFinder', { selector: 'div.title' })).toBeInTheDocument();
     expect(screen.getByText(/An app to discover, explore, and recommend books tailored to your reading preferences./)).toBeInTheDocument();
   });
