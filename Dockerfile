@@ -1,29 +1,40 @@
-# Stage 1: Build the frontend
-FROM node:20-alpine AS build
+# Stage 0: Build React app
+FROM node:20-alpine as build
 
-# Set working directory
+# Install dependencies needed for canvas
+RUN apk add --no-cache \
+    python3 \
+    make \
+    g++ \
+    cairo-dev \
+    pango-dev \
+    giflib-dev \
+    jpeg-dev \
+    libpng-dev \
+    && python3 -m ensurepip
+
 WORKDIR /app
 
-# Copy frontend package files
-COPY reactapp/package.json reactapp/package-lock.json ./
+# Copy package.json and package-lock.json
+COPY reactapp/package*.json ./
 
-# Install dependencies
+# Install npm dependencies
 RUN npm install
 
-# Copy all frontend source files
-COPY reactapp/ ./
+# Copy React app source
+COPY reactapp/ .
 
-# Build the frontend
+# Build React app
 RUN npm run build
 
-# Stage 2: Serve the static files with Nginx
+# Stage 1: Serve app with nginx
 FROM nginx:alpine
 
-# Copy built files from previous stage
+# Copy built app from previous stage
 COPY --from=build /app/build /usr/share/nginx/html
 
 # Expose port 80
 EXPOSE 80
 
-# Start Nginx
+# Start nginx
 CMD ["nginx", "-g", "daemon off;"]
